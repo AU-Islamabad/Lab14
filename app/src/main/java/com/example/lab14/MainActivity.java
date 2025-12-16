@@ -18,6 +18,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import taimoor.sultani.sweetalert2.Sweetalert;
+
 public class MainActivity extends AppCompatActivity {
 
     String KEY="Khudema";
@@ -55,18 +57,10 @@ public class MainActivity extends AppCompatActivity {
             public void handleOnBackPressed() {
 
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Do you want to exit!")
-                        .setMessage("Are you sure you want to close this application?")
-                        .setCancelable(false)
-                        .setPositiveButton("Yes", (dialog, which) -> {
-                            // YES clicked
-                            finish();
-                        })
-                        .setNegativeButton("No", (dialog, which) -> dialog.dismiss());
-
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
+                new Sweetalert(MainActivity.this, Sweetalert.SUCCESS_TYPE)
+                        .setTitleText("Good job!")
+                        .setContentText("You clicked the button!")
+                        .show();
 
 
             }
