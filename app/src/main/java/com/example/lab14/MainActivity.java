@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     String KEY="Khudema";
 
-    Button b1;
+    Button b1,b2;
     private boolean backPressedOnce = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(KEY,"OnCreate Method is called.");
         b1=findViewById(R.id.button1);
+        b2=findViewById(R.id.website);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(MainActivity.this,MainActivity3.class);
+                startActivity(i);
+            }
+        });
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
+
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
