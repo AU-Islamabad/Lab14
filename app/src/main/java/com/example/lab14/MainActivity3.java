@@ -34,22 +34,17 @@ public class MainActivity3 extends AppCompatActivity {
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
-
         // Fix scrolling conflict
         webView.setOnScrollChangeListener((v, scrollX, scrollY, oldX, oldY) ->
                 swipeRefresh.setEnabled(scrollY == 0)
         );
-
         webView.setWebViewClient(new WebViewClient() {
-
             @Override
             public void onPageFinished(WebView view, String url) {
                 swipeRefresh.setRefreshing(false);
             }
         });
-
         swipeRefresh.setOnRefreshListener(() -> webView.reload());
-
         webView.loadUrl("https://www.github.com");
     }
 }
